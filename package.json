@@ -1,0 +1,23 @@
+{
+  "name": "votechain-2.0",
+  "version": "2.0.0",
+  "description": "VoteChain 2.0 — Decentralized, Transparent & Auditable Election Management System using Solidity ^0.8.20, Truffle, Ganache, and React + Ethers.js v6",
+  "private": true,
+  "scripts": {
+    "start": "node start.js",
+    "ganache": "ganache --port 8545 --deterministic --accounts 10 --defaultBalanceEther 100 --networkId 1337",
+    "compile": "truffle compile",
+    "migrate": "truffle migrate --reset",
+    "test": "truffle test",
+    "dev:client": "cd client && npm run dev",
+    "build:client": "cd client && npm run build"
+  },
+  "devDependencies": {
+    "chai": "^4.3.10",
+    "ganache": "^7.9.2",
+    "truffle": "^5.11.5"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
