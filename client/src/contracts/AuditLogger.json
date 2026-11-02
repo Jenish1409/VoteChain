@@ -79,7 +79,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -92,7 +93,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -105,7 +107,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -203,7 +206,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -248,7 +252,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -299,7 +304,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     }
   ],
   "metadata": "{\"compiler\":{\"version\":\"0.8.20+commit.a1b79de6\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"auditId\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"electionId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"actionType\",\"type\":\"string\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"actor\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"timestamp\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"details\",\"type\":\"string\"}],\"name\":\"AuditEntryRecorded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousCaller\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newCaller\",\"type\":\"address\"}],\"name\":\"AuthorizedCallerUpdated\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"auditCount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"authorizedCaller\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getAllAuditRecords\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"auditId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"electionId\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"actionType\",\"type\":\"string\"},{\"internalType\":\"address\",\"name\":\"actor\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"timestamp\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"details\",\"type\":\"string\"}],\"internalType\":\"struct AuditLogger.AuditRecord[]\",\"name\":\"\",\"type\":\"tuple[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_auditId\",\"type\":\"uint256\"}],\"name\":\"getAuditRecord\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"auditId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"electionId\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"actionType\",\"type\":\"string\"},{\"internalType\":\"address\",\"name\":\"actor\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"timestamp\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"details\",\"type\":\"string\"}],\"internalType\":\"struct AuditLogger.AuditRecord\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_electionId\",\"type\":\"uint256\"}],\"name\":\"getElectionAuditRecords\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"auditId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"electionId\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"actionType\",\"type\":\"string\"},{\"internalType\":\"address\",\"name\":\"actor\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"timestamp\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"details\",\"type\":\"string\"}],\"internalType\":\"struct AuditLogger.AuditRecord[]\",\"name\":\"\",\"type\":\"tuple[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_electionId\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"_actionType\",\"type\":\"string\"},{\"internalType\":\"address\",\"name\":\"_actor\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"_details\",\"type\":\"string\"}],\"name\":\"logAction\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"newAuditId\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_caller\",\"type\":\"address\"}],\"name\":\"setAuthorizedCaller\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"Accepts state-changing log entries exclusively from the authorized ElectionManager contract.      Does not store sensitive personal identity information on-chain.\",\"kind\":\"dev\",\"methods\":{\"logAction(uint256,string,address,string)\":{\"details\":\"Can only be called by the authorized ElectionManager contract.\",\"params\":{\"_actionType\":\"Standardized event category (e.g., \\\"ELECTION_CREATED\\\", \\\"VOTE_CAST\\\").\",\"_actor\":\"Wallet address that initiated the transaction.\",\"_details\":\"Concise, non-sensitive description of the action.\",\"_electionId\":\"Associated election ID (0 for global/treasury events).\"},\"returns\":{\"newAuditId\":\"The sequential ID assigned to the newly created audit record.\"}},\"setAuthorizedCaller(address)\":{\"params\":{\"_caller\":\"Address of the deployed ElectionManager smart contract.\"}}},\"title\":\"AuditLogger\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"getAllAuditRecords()\":{\"notice\":\"Retrieves all audit records stored in the contract.\"},\"getAuditRecord(uint256)\":{\"notice\":\"Retrieves a single audit record by its 1-indexed ID.\"},\"getElectionAuditRecords(uint256)\":{\"notice\":\"Retrieves all audit records associated with a specific election ID (or 0 for treasury).\"},\"logAction(uint256,string,address,string)\":{\"notice\":\"Records an auditable election or treasury event on-chain.\"},\"setAuthorizedCaller(address)\":{\"notice\":\"Sets or updates the authorized ElectionManager contract address.\"}},\"notice\":\"Immutable, tamper-evident on-chain audit trail contract for VoteChain 2.0.\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/AuditLogger.sol\":\"AuditLogger\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/AuditLogger.sol\":{\"keccak256\":\"0x764f3f59eb3b1496ff8ada2071097ea4ce3a7a541e25d56ac635e62bd9368f2b\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://0ee6318717ded2ea581e92c446ab2a181e6f7bdf812585342b53a6f4035bf34e\",\"dweb:/ipfs/QmZ3f5aifHgE5y9xmCpayF5ZpZNXch5G4kmfFEUMqs18Pu\"]}},\"version\":1}",
@@ -12548,8 +12554,8 @@
         }
       },
       "links": {},
-      "address": "0x0290FB167208Af455bB137780163b7B7a9a10C16",
-      "transactionHash": "0x9837729a27a400c249e5c144bcfda79c89e4ae30d7c432ba1a121c658bd52c98"
+      "address": "0xCfEB869F69431e42cdB54A4F4f105C19C080A601",
+      "transactionHash": "0x74717ebeb4f524a81ba251251b4992a3d4f3759b3ddeb143e1288551c41655e5"
     },
     "5777": {
       "events": {},
@@ -12559,7 +12565,8 @@
     }
   },
   "schemaVersion": "3.4.16",
-  "updatedAt": "2026-11-01T19:24:06.300Z",
+  "updatedAt": "2026-11-02T11:10:38.742Z",
+  "networkType": "ethereum",
   "devdoc": {
     "details": "Accepts state-changing log entries exclusively from the authorized ElectionManager contract.      Does not store sensitive personal identity information on-chain.",
     "kind": "dev",

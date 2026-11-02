@@ -240,7 +240,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -253,7 +254,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -266,7 +268,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -279,7 +282,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -292,7 +296,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -305,11 +310,13 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "stateMutability": "payable",
-      "type": "receive"
+      "type": "receive",
+      "payable": true
     },
     {
       "inputs": [
@@ -475,7 +482,8 @@
       "name": "depositTreasury",
       "outputs": [],
       "stateMutability": "payable",
-      "type": "function"
+      "type": "function",
+      "payable": true
     },
     {
       "inputs": [
@@ -574,7 +582,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -644,7 +653,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -663,7 +673,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -724,7 +735,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -780,7 +792,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -831,7 +844,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -877,7 +891,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -901,7 +916,8 @@
         }
       ],
       "stateMutability": "pure",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -940,7 +956,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -953,7 +970,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -998,7 +1016,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     }
   ],
   "metadata": "{\"compiler\":{\"version\":\"0.8.20+commit.a1b79de6\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_auditLoggerAddress\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"electionId\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"candidateId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"partyName\",\"type\":\"string\"}],\"name\":\"CandidateRegistered\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"electionId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"title\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"startTime\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"endTime\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\"}],\"name\":\"ElectionCreated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"electionId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"isActive\",\"type\":\"bool\"},{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"isClosed\",\"type\":\"bool\"}],\"name\":\"ElectionStatusUpdated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"txId\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"purpose\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"newBalance\",\"type\":\"uint256\"}],\"name\":\"TreasuryDeposited\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"txId\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"purpose\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"newBalance\",\"type\":\"uint256\"}],\"name\":\"TreasuryWithdrawn\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"electionId\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"candidateId\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"voter\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"timestamp\",\"type\":\"uint256\"}],\"name\":\"VoteCast\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"electionId\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"voter\",\"type\":\"address\"}],\"name\":\"VoterRegistered\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"admin\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"auditLogger\",\"outputs\":[{\"internalType\":\"contract IAuditLogger\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_votesCast\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_registeredVoters\",\"type\":\"uint256\"}],\"name\":\"calculateTurnoutBasisPoints\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_electionId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_candidateId\",\"type\":\"uint256\"}],\"name\":\"castVote\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_electionId\",\"type\":\"uint256\"}],\"name\":\"closeElection\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_title\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_description\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"_startTime\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_endTime\",\"type\":\"uint256\"}],\"name\":\"createElection\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"newElectionId\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_purpose\",\"type\":\"string\"}],\"name\":\"depositTreasury\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"electionCount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getAllElections\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"electionId\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"title\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"description\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"startTime\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"endTime\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"isActive\",\"type\":\"bool\"},{\"internalType\":\"bool\",\"name\":\"isClosed\",\"type\":\"bool\"},{\"internalType\":\"bool\",\"name\":\"exists\",\"type\":\"bool\"},{\"internalType\":\"uint256\",\"name\":\"candidateCount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"registeredVoters\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"totalVotes\",\"type\":\"uint256\"}],\"internalType\":\"struct ElectionManager.Election[]\",\"name\":\"\",\"type\":\"tuple[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getAllTreasuryTransactions\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"txId\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"txType\",\"type\":\"string\"},{\"internalType\":\"address\",\"name\":\"counterparty\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"purpose\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"timestamp\",\"type\":\"uint256\"}],\"internalType\":\"struct ElectionManager.TreasuryTransaction[]\",\"name\":\"\",\"type\":\"tuple[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_electionId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_candidateId\",\"type\":\"uint256\"}],\"name\":\"getCandidate\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"candidateId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"electionId\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"partyName\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"description\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"voteCount\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"exists\",\"type\":\"bool\"}],\"internalType\":\"struct ElectionManager.Candidate\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_electionId\",\"type\":\"uint256\"}],\"name\":\"getElection\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"electionId\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"title\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"description\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"startTime\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"endTime\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"isActive\",\"type\":\"bool\"},{\"internalType\":\"bool\",\"name\":\"isClosed\",\"type\":\"bool\"},{\"internalType\":\"bool\",\"name\":\"exists\",\"type\":\"bool\"},{\"internalType\":\"uint256\",\"name\":\"candidateCount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"registeredVoters\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"totalVotes\",\"type\":\"uint256\"}],\"internalType\":\"struct ElectionManager.Election\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_electionId\",\"type\":\"uint256\"}],\"name\":\"getElectionCandidates\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"candidateId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"electionId\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"partyName\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"description\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"voteCount\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"exists\",\"type\":\"bool\"}],\"internalType\":\"struct ElectionManager.Candidate[]\",\"name\":\"\",\"type\":\"tuple[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_electionId\",\"type\":\"uint256\"}],\"name\":\"getElectionPhase\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_electionId\",\"type\":\"uint256\"}],\"name\":\"getElectionResultsSummary\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"winningVoteCount\",\"type\":\"uint256\"},{\"internalType\":\"uint256[]\",\"name\":\"winningCandidateIds\",\"type\":\"uint256[]\"},{\"internalType\":\"bool\",\"name\":\"isTie\",\"type\":\"bool\"},{\"internalType\":\"bool\",\"name\":\"hasVotes\",\"type\":\"bool\"},{\"internalType\":\"uint256\",\"name\":\"turnoutBasisPoints\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_electionId\",\"type\":\"uint256\"}],\"name\":\"getElectionVoters\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"voterAddress\",\"type\":\"address\"},{\"internalType\":\"bool\",\"name\":\"isRegistered\",\"type\":\"bool\"},{\"internalType\":\"bool\",\"name\":\"hasVoted\",\"type\":\"bool\"},{\"internalType\":\"uint256\",\"name\":\"votedCandidateId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"votedAt\",\"type\":\"uint256\"}],\"internalType\":\"struct ElectionManager.VoterInfo[]\",\"name\":\"\",\"type\":\"tuple[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getTreasuryBalance\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_electionId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"_voter\",\"type\":\"address\"}],\"name\":\"getVoterInfo\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"voterAddress\",\"type\":\"address\"},{\"internalType\":\"bool\",\"name\":\"isRegistered\",\"type\":\"bool\"},{\"internalType\":\"bool\",\"name\":\"hasVoted\",\"type\":\"bool\"},{\"internalType\":\"uint256\",\"name\":\"votedCandidateId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"votedAt\",\"type\":\"uint256\"}],\"internalType\":\"struct ElectionManager.VoterInfo\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_electionId\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"_name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_partyName\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_description\",\"type\":\"string\"}],\"name\":\"registerCandidate\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"newCandidateId\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_electionId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"_voter\",\"type\":\"address\"}],\"name\":\"registerVoter\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_electionId\",\"type\":\"uint256\"},{\"internalType\":\"address[]\",\"name\":\"_voterAddresses\",\"type\":\"address[]\"}],\"name\":\"registerVotersBatch\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_electionId\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"_isActive\",\"type\":\"bool\"}],\"name\":\"setElectionActiveStatus\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalTreasuryDeposited\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalTreasuryWithdrawn\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"treasuryTxCount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address payable\",\"name\":\"_recipient\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_amount\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"_purpose\",\"type\":\"string\"}],\"name\":\"withdrawTreasury\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"stateMutability\":\"payable\",\"type\":\"receive\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"constructor\":{\"params\":{\"_auditLoggerAddress\":\"Deployed address of AuditLogger.sol\"}},\"withdrawTreasury(address,uint256,string)\":{\"details\":\"Demonstrates Contract-to-Account Ether transfer protected by onlyAdmin and nonReentrant.\"}},\"title\":\"ElectionManager\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"calculateTurnoutBasisPoints(uint256,uint256)\":{\"notice\":\"Pure function to compute voter turnout in basis points (10000 = 100.00%).\"},\"castVote(uint256,uint256)\":{\"notice\":\"Casts a single tamper-evident vote for a candidate in an active election.\"},\"closeElection(uint256)\":{\"notice\":\"Permanently closes an election and finalizes results.\"},\"constructor\":{\"notice\":\"Initializes ElectionManager with the administrator account and linked AuditLogger contract.\"},\"createElection(string,string,uint256,uint256)\":{\"notice\":\"Creates a new election with specified start and end timestamps.\"},\"depositTreasury(string)\":{\"notice\":\"Allows depositing test Ether into the administrative treasury with a memo.\"},\"getAllElections()\":{\"notice\":\"Returns all elections created on the platform.\"},\"getAllTreasuryTransactions()\":{\"notice\":\"Returns all treasury deposit and withdrawal records for the React TransactionTable.\"},\"getCandidate(uint256,uint256)\":{\"notice\":\"Returns a specific candidate in an election.\"},\"getElection(uint256)\":{\"notice\":\"Returns full details of a single election.\"},\"getElectionCandidates(uint256)\":{\"notice\":\"Returns all registered candidates for an election.\"},\"getElectionPhase(uint256)\":{\"notice\":\"Computes the current human-readable lifecycle phase of an election.\"},\"getElectionResultsSummary(uint256)\":{\"notice\":\"Computes election results, winner(s), tie status, and turnout directly from on-chain tallies.\"},\"getElectionVoters(uint256)\":{\"notice\":\"Returns all registered voters for an election to populate the React VoterTable.\"},\"getTreasuryBalance()\":{\"notice\":\"Returns the current Ether balance held in the ElectionManager treasury.\"},\"getVoterInfo(uint256,address)\":{\"notice\":\"Returns voter registration and voting status for a given wallet address.\"},\"registerCandidate(uint256,string,string,string)\":{\"notice\":\"Registers a candidate for a specific election prior to the start of voting.\"},\"registerVoter(uint256,address)\":{\"notice\":\"Whitelists an eligible voter wallet address for a specific election.\"},\"registerVotersBatch(uint256,address[])\":{\"notice\":\"Whitelists multiple voter wallet addresses in a single transaction.\"},\"setElectionActiveStatus(uint256,bool)\":{\"notice\":\"Enables or pauses an election (cannot reopen a permanently closed election).\"},\"withdrawTreasury(address,uint256,string)\":{\"notice\":\"Transfers test Ether from the contract treasury to a specified recipient EOA.\"}},\"notice\":\"Primary smart contract for VoteChain 2.0 managing multiple elections, candidate registration,         wallet-level voter eligibility, tamper-evident vote casting, tie-aware results calculation,         contract-to-contract audit logging, and an administrative test-Ether treasury.\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/ElectionManager.sol\":\"ElectionManager\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/ElectionManager.sol\":{\"keccak256\":\"0xd16ab2e26aa5eda7cacf9c8ebfc96af1ec5ddae4954a0a9578e017bf25f2e259\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://589c04556307bf9e2ffd9e105df5790585def885ddbb9c424ceafb00f73cd162\",\"dweb:/ipfs/QmeFoJ2Q9f6PFKnWb1JBW5eFxZJRDr5Fb7RPnHbpFWaZaf\"]}},\"version\":1}",
@@ -51957,8 +51976,8 @@
     "1337": {
       "events": {},
       "links": {},
-      "address": "0x9b1f7F645351AF3631a656421eD2e40f2802E6c0",
-      "transactionHash": "0xa2cf47f592ff2adaf59595567b15c3c981a0ced9758e8f565fc3063159c27f43"
+      "address": "0x254dffcd3277C0b1660F6d42EFbB754edaBAbC2B",
+      "transactionHash": "0x12cc55aca44c656362ca4929ed38325af35872c662f9796e0cf40291b172fb47"
     },
     "5777": {
       "events": {},
@@ -51968,7 +51987,8 @@
     }
   },
   "schemaVersion": "3.4.16",
-  "updatedAt": "2026-11-01T19:24:06.315Z",
+  "updatedAt": "2026-11-02T11:10:38.758Z",
+  "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",
     "methods": {

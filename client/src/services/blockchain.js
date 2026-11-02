@@ -215,13 +215,34 @@ export function subscribeToWalletEvents(onAccountsChanged, onChainChanged) {
 // READ-ONLY (VIEW / PURE) CONTRACT QUERIES
 // ============================================================================
 
+/**
+ * Computes election phase CLIENT-SIDE using JavaScript Date.now() instead of
+ * relying on block.timestamp from the contract. This fixes the "stuck in
+ * UPCOMING" bug on Ganache where block.timestamp only advances when a new
+ * block is mined, but eth_call (view functions) may use the stale timestamp
+ * of the last mined block.
+ */
+function computePhaseClientSide(election) {
+  if (election.isClosed) return "CLOSED";
+  if (!election.isActive) return "PAUSED";
+  const nowSec = Math.floor(Date.now() / 1000);
+  if (nowSec < election.startTime) return "UPCOMING";
+  if (nowSec <= election.endTime) return "ACTIVE";
+  return "ENDED";
+}
+
 export async function fetchAllElectionsWithPhase() {
   if (!electionManagerContract) return [];
   const rawElections = await electionManagerContract.getAllElections();
   const formatted = await Promise.all(
     rawElections.map(async (e) => {
       const id = Number(e.electionId);
-      const phase = await electionManagerContract.getElectionPhase(id);
+      const startTime = Number(e.startTime);
+      const endTime = Number(e.endTime);
+      const isActive = Boolean(e.isActive);
+      const isClosed = Boolean(e.isClosed);
+      // Compute phase client-side to avoid stale block.timestamp on Ganache
+      const phase = computePhaseClientSide({ startTime, endTime, isActive, isClosed });
       const turnoutBps =
         await electionManagerContract.calculateTurnoutBasisPoints(
           e.totalVotes,
@@ -231,10 +252,10 @@ export async function fetchAllElectionsWithPhase() {
         electionId: id,
         title: e.title,
         description: e.description,
-        startTime: Number(e.startTime),
-        endTime: Number(e.endTime),
-        isActive: Boolean(e.isActive),
-        isClosed: Boolean(e.isClosed),
+        startTime,
+        endTime,
+        isActive,
+        isClosed,
         exists: Boolean(e.exists),
         candidateCount: Number(e.candidateCount),
         registeredVoters: Number(e.registeredVoters),
@@ -249,10 +270,9 @@ export async function fetchAllElectionsWithPhase() {
 
 export async function fetchElectionDetailsBundle(electionId, currentAccount) {
   if (!electionManagerContract) return null;
-  const [rawElection, phase, rawCandidates, rawVoters, rawSummary] =
+  const [rawElection, rawCandidates, rawVoters, rawSummary] =
     await Promise.all([
       electionManagerContract.getElection(electionId),
-      electionManagerContract.getElectionPhase(electionId),
       electionManagerContract.getElectionCandidates(electionId),
       electionManagerContract.getElectionVoters(electionId),
       electionManagerContract.getElectionResultsSummary(electionId),
@@ -280,19 +300,24 @@ export async function fetchElectionDetailsBundle(electionId, currentAccount) {
     };
   }
 
+  const elStartTime = Number(rawElection.startTime);
+  const elEndTime = Number(rawElection.endTime);
+  const elIsActive = Boolean(rawElection.isActive);
+  const elIsClosed = Boolean(rawElection.isClosed);
+
   return {
     election: {
       electionId: Number(rawElection.electionId),
       title: rawElection.title,
       description: rawElection.description,
-      startTime: Number(rawElection.startTime),
-      endTime: Number(rawElection.endTime),
-      isActive: Boolean(rawElection.isActive),
-      isClosed: Boolean(rawElection.isClosed),
+      startTime: elStartTime,
+      endTime: elEndTime,
+      isActive: elIsActive,
+      isClosed: elIsClosed,
       candidateCount: Number(rawElection.candidateCount),
       registeredVoters: Number(rawElection.registeredVoters),
       totalVotes: Number(rawElection.totalVotes),
-      phase,
+      phase: computePhaseClientSide({ startTime: elStartTime, endTime: elEndTime, isActive: elIsActive, isClosed: elIsClosed }),
     },
     candidates: rawCandidates.map((c) => ({
       candidateId: Number(c.candidateId),
@@ -446,7 +471,26 @@ export async function txCloseElection(electionId) {
   return { hash: receipt.hash, blockNumber: receipt.blockNumber };
 }
 
+/**
+ * Mines a new empty block on Ganache so that block.timestamp catches up to
+ * the real wall-clock time.  This is a no-op on live networks (the RPC may
+ * just fail silently).  Without this, Ganache's block.timestamp can be stuck
+ * at the timestamp of the last mined block, causing the contract's time-based
+ * require() checks to fail even though the real time has passed.
+ */
+async function mineGanacheBlock() {
+  try {
+    if (window.ethereum) {
+      await window.ethereum.request({ method: "evm_mine", params: [] });
+    }
+  } catch (_) {
+    // Silently ignore — evm_mine is only available on Ganache/Hardhat
+  }
+}
+
 export async function txCastVote(electionId, candidateId) {
+  // Mine a fresh block so block.timestamp is current before the voting tx
+  await mineGanacheBlock();
   const tx = await electionManagerContract.castVote(
     BigInt(electionId),
     BigInt(candidateId)
